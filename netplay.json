@@ -89,8 +89,8 @@
         },
         {
           "type": "binary",
-          "sourceFile": "Binary/FasterMeleeSettings/SinglesStages.bin",
-          "annotation": "Singles Stages [Magus]"
+          "sourceFile": "Binary/NotSinglesStages.bin",
+          "annotation": "Not Singles Stages [Krohnos]"
         },
         {
           "type": "injectFolder",
