@@ -140,9 +140,13 @@ rlwinm \reg, \reg, 8, 0xFFFF # Loads major and minor scene into bottom of reg
 .set FG_CreateSubtext,0x800056b4
 .set FN_LoadChatMessageProperties,0x800056ac
 .set FN_GetTeamCostumeIndex,0x800056b0
+.set FN_GetCSSIconData,0x800056b8
+.set FN_CSSUpdateCSP,0x800056bc
+.set FN_RequestSSM,0x800056a8
 # available addresses for static functions
 .set FN_ToggleSuddenDeath,0x800056b8
 # 0x800056bc
+# 0x800056a4
 
 # Online static functions
 .set FN_CaptureSavestate,0x80005608
@@ -314,10 +318,10 @@ rlwinm \reg, \reg, 8, 0xFFFF # Loads major and minor scene into bottom of reg
 # For Slippi file loads
 .set CONST_SlippiCmdFileLength, 0xD1
 .set CONST_SlippiCmdFileLoad, 0xD2
+.set CONST_SlippiCmdGctLength, 0xD3
+.set CONST_SlippiCmdGctLoad, 0xD4
 
 .set CONST_FirstFrameIdx, -123
-
-.set GeckoCodeSectionStart,0x801910E8
 
 .set RtocAddress, 0x804df9e0
 
@@ -337,6 +341,7 @@ rlwinm \reg, \reg, 8, 0xFFFF # Loads major and minor scene into bottom of reg
 .set FSToggleAddr, RtocAddress + FSToggle
 .set HideWaitingForGameAddress, RtocAddress + HideWaitingForGame
 .set CFOptionsAddress, RtocAddress - ControllerFixOptions
+.set GeckoHeapPtr, 0x80005600
 
 ################################################################################
 # Offsets from r13
