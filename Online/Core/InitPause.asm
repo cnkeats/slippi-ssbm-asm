@@ -10,6 +10,16 @@ getMinorMajor r3
 cmpwi r3, SCENE_ONLINE_IN_GAME
 bne INJECTION_EXIT
 
+
+VSSceneDecide_EnableSuddenDeath:
+lbz r3, OFST_R13_ISWINNER (r13)
+cmpwi r3, 0x2
+bne TEMP
+load r3,0x0046db6c
+load r4,0xC300FF00
+stw r4, 0(r3)
+TEMP:
+
 ################################################################################
 # Initialize Client Pause
 ################################################################################

@@ -482,8 +482,14 @@ VSSceneDecide:
 
 backup
 
-# Run original scene decide
-branchl r12,0x801b15c8
+# Run original scene decide (SceneDecide_VSMode_InGame)
+branchl r12,0x801b15c8 # this function results in looking at sudden death (0x80199f14)
+
+# Play Warning sfx
+li r3, 0xbc
+li r4, 127
+li r5, 64
+branchl r12, 0x800237a8 # SFX_PlaySoundAtFullVolume
 
 # Get match state info
 li r3, 0
@@ -507,11 +513,18 @@ VSSceneDecide_UpdateWinner_IncLoop:
 addi  REG_Count,REG_Count,1
 cmpwi REG_Count,4
 blt VSSceneDecide_UpdateWinner_Loop
+# check if the game had 2 winners
+cmpwi REG_Winners,2
+bne VSSCeneDecide_SingleWinnerCheck
+VSSceneDecide_EnableSuddenDeath:
+li r3, ISWINNER_DRAW
+stb r3, OFST_R13_ISWINNER (r13)
+VSSCeneDecide_SingleWinnerCheck:
 # ensure game only had 1 winner
 cmpwi REG_Winners,1
 bne VSSceneDecide_Lost
 
-#Update ISWINNER static bool
+# Update ISWINNER static bool
 lbz r3,MSRB_LOCAL_PLAYER_INDEX(REG_MSRB_ADDR)
 bl  CheckIfWonLastGame
 cmpwi r3,0

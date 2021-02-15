@@ -141,7 +141,7 @@ rlwinm \reg, \reg, 8, 0xFFFF # Loads major and minor scene into bottom of reg
 .set FN_LoadChatMessageProperties,0x800056ac
 .set FN_GetTeamCostumeIndex,0x800056b0
 # available addresses for static functions
-# 0x800056b8
+.set FN_ToggleSuddenDeath,0x800056b8
 # 0x800056bc
 
 # Online static functions

@@ -95,6 +95,7 @@ lwz \reg, -0x62A0(\reg)
 .set ISWINNER_NULL, -1    # indicates this is the first match / no previous winner
 .set ISWINNER_LOST, 0    # indicates the player lost the previous match
 .set ISWINNER_WON, 1    # indicates the player won the previous match
+.set ISWINNER_DRAW, 2    # indicates the player drew the previous match
 
 ################################################################################
 # Stage Behavior Arg Values (r3 for FN_LOCK_IN_AND_SEARCH and FN_TX_LOCK_IN)
