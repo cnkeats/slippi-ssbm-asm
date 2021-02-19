@@ -499,12 +499,6 @@ backup
 # Run original scene decide (SceneDecide_VSMode_InGame)
 branchl r12,0x801b15c8 # this function results in looking at sudden death (0x80199f14)
 
-# Play Warning sfx
-li r3, 0xbc
-li r4, 127
-li r5, 64
-branchl r12, 0x800237a8 # SFX_PlaySoundAtFullVolume
-
 # Get match state info
 li r3, 0
 branchl r12, FN_LoadMatchState
@@ -550,13 +544,6 @@ VSSceneDecide_UpdateWinner_IncLoop:
 addi  REG_Count,REG_Count,1
 cmpwi REG_Count,4
 blt VSSceneDecide_UpdateWinner_Loop
-# check if the game had 2 winners
-cmpwi REG_Winners,2
-bne VSSCeneDecide_SingleWinnerCheck
-VSSceneDecide_EnableSuddenDeath:
-li r3, ISWINNER_DRAW
-stb r3, OFST_R13_ISWINNER (r13)
-VSSCeneDecide_SingleWinnerCheck:
 # ensure game only had 1 winner
 cmpwi REG_Winners,1
 beq SELECTOR_OVERWRITE_END # If only one winner, don't overwrite
@@ -653,11 +640,28 @@ stw r3, 0x5F90(r4) #RNG seed
 mr r3, REG_TXB_ADDR
 branchl r12, HSD_Free
 
+# Check if there was more than one winner
+cmpwi REG_Winners,1
+beq VSScene_GoToCSS # If only one winner, go to CSS. Otherwise, go back to VS.
+
+VSScene_GoToVS:
+
+li r3, ISWINNER_DRAW # set flag to draw
+stb r3, OFST_R13_ISWINNER(r13)
+
+# Go back to VS
+load r4, 0x80479d30
+li r3, 0x03
+stb r3, 0x5(r4)
+b VSScene_GoToEnd
+
+VSScene_GoToCSS:
 # Go back to CSS
 load r4, 0x80479d30
 li r3, 0x01
-stb r3, 0x5(r4)
+stb r3, 0x5(r4) # THIS IS THE LINE THAT OVERRIDES SUDDEN DEATH BUT REMOVING IT CRASHES THE GAME
 
+VSScene_GoToEnd:
 # Free the buffer we allocated to get match state
 mr r3, REG_MSRB_ADDR
 branchl r12, HSD_Free
