@@ -236,9 +236,9 @@ stw r3, -ControllerFixOptions(rtoc)
 # Report game results for unranked
 ################################################################################
 # Ensure that this is an unranked game
-lbz r3, OFST_R13_ONLINE_MODE(r13)
-cmpwi r3, ONLINE_MODE_UNRANKED
-bne REPORT_GAME_EXIT
+#lbz r3, OFST_R13_ONLINE_MODE(r13)
+#cmpwi r3, ONLINE_MODE_UNRANKED
+#bne REPORT_GAME_EXIT
 
 # Prepare buffer for EXI transfer
 li r3, RGB_SIZE
