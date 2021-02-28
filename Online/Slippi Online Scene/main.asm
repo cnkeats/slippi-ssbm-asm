@@ -700,11 +700,15 @@ li  r5,0x10
 branchl r12,memcpy
 #Modify Splash Data
 load  r4,0x80490888
-lbz r3, 0x60(REG_VS_SSS_DATA) # load p1 char id
+#lbz r3, 0x60(REG_VS_SSS_DATA) # load p1 char id
+#monke
+li r3, 0x01
 stb r3,0x5(r4)
 lbz r3, 0x63(REG_VS_SSS_DATA) # load char color
 stb r3,0xB(r4)
 lbz r3, 0x60 + 0x24(REG_VS_SSS_DATA) # load p2 char id
+#monke
+li r3, 0x01
 stb r3,0x8(r4)
 lbz r3, 0x63 + 0x24(REG_VS_SSS_DATA) # load char color
 stb r3,0xE(r4)
