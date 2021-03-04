@@ -5,3 +5,9 @@ echo.
 
 xcopy C:\Users\Calvin\Documents\prog\slippi-ssbm-asm\Output\Netplay\GALE01r2.ini C:\Users\Calvin\Documents\prog\slippi-online\Binary\x64\Sys\GameSettings /Y
 xcopy C:\Users\Calvin\Documents\prog\slippi-ssbm-asm\Output\Netplay\GALJ01r2.ini C:\Users\Calvin\Documents\prog\slippi-online\Binary\x64\Sys\GameSettings /Y
+
+xcopy C:\Users\Calvin\Documents\prog\slippi-ssbm-asm\Output\Netplay\GALE01r2.ini C:\Users\Calvin\Documents\prog\slippi-online\Data\Sys\GameSettings /Y
+xcopy C:\Users\Calvin\Documents\prog\slippi-ssbm-asm\Output\Netplay\GALJ01r2.ini C:\Users\Calvin\Documents\prog\slippi-online\Data\Sys\GameSettings /Y
+
+xcopy C:\Users\Calvin\Documents\prog\slippi-ssbm-asm\Output\Netplay\GALE01r2.ini C:\Users\Calvin\Downloads\MangoAxeWednesdayTesting\Sys\GameSettings /Y
+xcopy C:\Users\Calvin\Documents\prog\slippi-ssbm-asm\Output\Netplay\GALJ01r2.ini C:\Users\Calvin\Downloads\MangoAxeWednesdayTesting\Sys\GameSettings /Y
