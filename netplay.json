@@ -493,6 +493,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "No Ego Mode",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Randomize stock counts as 1-6 and hide the stock icons. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/No Ego Mode",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
