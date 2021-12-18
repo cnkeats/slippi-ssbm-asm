@@ -500,7 +500,7 @@
         "Krohnos"
       ],
       "description": [
-        "Randomize stock counts as 1-6 and hide the stock icons. v1.0"
+        "Randomize stock counts as 1-6 and hide the stock icons. Compatible with Slippi Direct. Does not take effect in Unranked or Teams. v1.1"
       ],
       "build": [
         {

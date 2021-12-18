@@ -9,10 +9,15 @@
   cmpwi r7, 0x0202
   beq RandomizeStocks
   
-  # Check for online modes
+  # Check Online modes
   lbz r3, OFST_R13_ONLINE_MODE(r13)
   cmpwi r3, ONLINE_MODE_DIRECT
   beq RandomizeStocks
+
+  # Check if Playback mode
+  cmpwi r7, 0x010E
+  beq RandomizeStocks
+
   b Exit
   
 RandomizeStocks:
