@@ -126,6 +126,20 @@
         },
         {
           "type": "injectFolder",
+          "sourceFolder": "Online/Core/EXIFileLoad",
+          "isRecursive": true,
+          "annotation": "File load functions"
+        }
+      ]
+    },
+    {
+      "name": "Recommended: Normal Lag Reduction",
+      "authors": [
+        "Hannes Mann"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
           "sourceFolder": "Common/CompatibilityHooks",
           "isRecursive": true,
           "annotation": "Functions that can be externally modified"
