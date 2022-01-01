@@ -493,6 +493,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Single Button Mode - B Only",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Removes L, R, Z, A, X, Y, and the C-Stick from the game. 2 stocks, 5 minutes. Compatible with Slippi Direct. Does not take effect in Unranked. v1.1"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/B Single Button Mode",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
