@@ -493,6 +493,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "99-Stock Online",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Overwrite the game rules to be 99-Stock with no time limit. Compatible with Slippi Direct. Does not take effect in Unranked. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/99-Stock Online",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
