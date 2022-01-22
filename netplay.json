@@ -495,6 +495,22 @@
       ]
     },
     {
+      "name": "3 stocks, 5 minutes",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "3 stocks, 5 minutes. Compatible with Slippi Direct. Does not take effect in Unranked. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/3 Stocks 5 Minutes",
+          "isRecursive": true
+        }
+      ]
+    },
+    {
       "name": "Single Button Mode - B Only",
       "authors": [
         "Krohnos"
