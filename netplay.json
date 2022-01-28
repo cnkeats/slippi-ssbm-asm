@@ -574,6 +574,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Rollback items",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Enables all items in-game on the \"Medium\" setting. Compatible with Slippi Direct. Does not take effect in Unranked or Teams. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Rollback Items",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
