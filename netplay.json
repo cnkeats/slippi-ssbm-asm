@@ -590,6 +590,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "2 Stock Item Chaos",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Enables many items in-game on the \"High\" setting. 2 stocks, 2 minutes. Compatible with Slippi Direct. Does not take effect in Unranked. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/2 Stock Item Chaos",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
