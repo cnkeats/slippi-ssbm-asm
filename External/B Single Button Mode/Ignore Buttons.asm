@@ -27,7 +27,7 @@
   b Exit
 
 OverrideInputs:
-  andi. r0, r0, 0x1208
+  andi. r0, r0, 0x1E08
 
   load r15, 0x00000000
   load r16, 0x804c1fd4 # Player 1 C-stick X
