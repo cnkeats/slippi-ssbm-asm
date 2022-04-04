@@ -606,6 +606,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "No X / Y",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Removes X and Y when in-game. Compatible with Slippi Direct. Does not take effect in Unranked. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/No XY",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
