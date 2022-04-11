@@ -622,6 +622,23 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Toph Tournament: 5 Minutes",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "5 minutes to take the game. Could this be a meta-changing mixup? ",
+        "For use with Slippi Direct. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/5 Minutes",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
