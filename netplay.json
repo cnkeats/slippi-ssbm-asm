@@ -641,6 +641,23 @@
       ]
     },
     {
+      "name": "Nuckels FFA",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "1 stock, 2 minutes. Items on Medium. Free-for-all.",
+        "For use with Slippi Teams. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Nuckels FFA",
+          "isRecursive": true
+        }
+      ]
+    },
+    {
       "name": "Mute In-Game Music",
       "authors": [
         "Krohnos"
