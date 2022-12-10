@@ -6,7 +6,7 @@
 
   # Check if Playback mode
   getMinorMajor r17
-  cmpwi r17, 0x010E
+  cmpwi r7, 0x010E
   beq EditRules
   
   # Check for online modes
@@ -16,8 +16,8 @@
   cmpwi r3, ONLINE_MODE_UNRANKED
   beq Exit
 
-  getMinorMajor r17
-  cmpwi r17, 0x0208
+  getMinorMajor r7
+  cmpwi r7, 0x0208
   beq EditRules
   b Exit
 

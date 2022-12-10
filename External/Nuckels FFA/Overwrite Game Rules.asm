@@ -16,8 +16,8 @@
   cmpwi r17, ONLINE_MODE_UNRANKED
   beq Exit
 
-  getMinorMajor r17
-  cmpwi r17, 0x0208
+  getMinorMajor r7
+  cmpwi r7, 0x0208
   beq EditRules
   b Exit
 
@@ -47,10 +47,10 @@ EditRules:
 
   load r20, GameInfoBlock
   
-  li r18, ItemsOff
+  li r18, ItemsMedium
   stb r18, ItemFrequency (r20)
 
-  li r18, 0x7FFF # 2 minutes
+  li r18, 120 # 2 minutes
   stw r18, GameTimer (r20)
 
   li r18, 0x0
