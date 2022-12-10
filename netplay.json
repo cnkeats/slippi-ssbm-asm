@@ -639,6 +639,39 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Nuckels FFA",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "1 stock, 2 minutes. Items on Medium. Free-for-all.",
+        "For use with Slippi Teams. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Nuckels FFA",
+          "isRecursive": true
+        }
+      ]
+    },
+    {
+      "name": "Mute In-Game Music",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Mutes in-game music. Music in other scenes is unaffected. Not compatible with Slippi Online. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Mute In-Game Music",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
