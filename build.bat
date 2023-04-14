@@ -1,18 +1,18 @@
 @echo off
 echo Building netplay.json...
-gecko build -c netplay.json -defsym "STG_EXIIndex=1"
+gecko build -c netplay.json -defsym "STG_EXIIndex=1" -batched
 echo.
 
 echo Building playback.json...
-gecko build -c playback.json -defsym "STG_EXIIndex=1"
-echo.
-
-echo Building console_core.json...
-gecko build -c console_core.json -defsym "STG_EXIIndex=1" -o "Output/Console/g_core.bin"
+gecko build -c playback.json -defsym "STG_EXIIndex=1" -batched
 echo.
 
 echo Building console_core.json for Port A...
-gecko build -c console_core.json -defsym "STG_EXIIndex=0" -o "Output/Console/g_core_porta.bin"
+gecko build -c console_core.json -defsym "STG_EXIIndex=0" -o "Output/Console/g_core_porta.bin" -batched
+echo.
+
+echo Building console_core.json...
+gecko build -c console_core.json -defsym "STG_EXIIndex=1" -o "Output/Console/g_core.bin" -batched
 echo.
 
 set list=console_UCF.json
@@ -31,6 +31,7 @@ set list=%list%;console_lag_pdhalfvb.json
 set list=%list%;console_screen_wide.json
 set list=%list%;console_screen_wide_shutters.json
 set list=%list%;console_safety.json
+set list=%list%;console_crash_output.json
 
 for %%a in (%list%) do (
   echo Building %%a...

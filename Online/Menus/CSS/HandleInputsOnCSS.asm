@@ -100,9 +100,8 @@ branchl r12, SFX_Menu_CommonSound
 
 SOUND_PLAY_END:
 
-
-# uncomment to debug the chat window
-bl FN_CHECK_CHAT_INPUTS
+# comment to disable chat
+#bl FN_CHECK_CHAT_INPUTS
 
 ################################################################################
 # Fork logic based on current connection state
@@ -159,6 +158,8 @@ beq SKIP_START_MATCH
 
 # Check which mode we are playing. direct mode should launch text entry
 lbz r3, OFST_R13_ONLINE_MODE(r13)
+cmpwi r3, ONLINE_MODE_RANKED
+beq HANDLE_IDLE_UNRANKED
 cmpwi r3, ONLINE_MODE_UNRANKED
 beq HANDLE_IDLE_UNRANKED
 cmpwi r3, ONLINE_MODE_DIRECT
@@ -337,6 +338,13 @@ b SKIP_START_MATCH
 ################################################################################
 FN_TX_FIND_MATCH:
 backup
+
+# When the player starts looking for a match is a good time to reset the game index
+loadwz r3, 0x803dad40 # Load minor scene data array ptr
+lwz r12, 0x88(r3) # Load game prep minor scene data
+li r3, 0
+sth r3, GPDO_CUR_GAME(r12)
+stb r3, GPDO_TIEBREAK_GAME_NUM(r12)
 
 # Prepare buffer for EXI transfer
 li r3, FMTB_SIZE
@@ -758,7 +766,10 @@ blrl
 .set CHAT_WINDOW_HEADER_MARGIN_LINES, 0x2 # lines away from which to start drawing messages away from header
 
 mr REG_CHAT_WINDOW_GOBJ, r3 # Store GOBJ pointer 0x801954A4
-backup
+
+.set NUM_FREG, 0
+.set NUM_GPREG, 18
+backup BKP_DEFAULT_FREE_SPACE_SIZE, NUM_FREG, NUM_GPREG
 
 # get gobj and get values for each of the data buffer
 lwz REG_CHAT_WINDOW_GOBJ_DATA_ADDR, CHAT_ENTITY_DATA_OFFSET(REG_CHAT_WINDOW_GOBJ) # get address of data buffer
@@ -1011,7 +1022,7 @@ mr r3, REG_CHAT_WINDOW_TEXT_STRUCT_ADDR
 branchl r12, Text_RemoveText
 
 CSS_ONLINE_CHAT_WINDOW_THINK_EXIT:
-restore
+restore BKP_DEFAULT_FREE_SPACE_SIZE, NUM_FREG, NUM_GPREG
 blr
 
 
