@@ -672,6 +672,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Rishi's Jungle Jam",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Loads games as Rishi's Jungle Jam. Compatible with Slippi Online. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Rishi's Jungle Jam",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
