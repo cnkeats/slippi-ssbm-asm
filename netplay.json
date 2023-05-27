@@ -521,6 +521,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Arte Lag Tester",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Forcefully rumbles when the main menu is loaded"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Arte Lag Tester",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
