@@ -528,7 +528,7 @@
         "Krohnos"
       ],
       "description": [
-        "Forcefully rumbles when the main menu is loaded"
+        "Forcefully rumbles when the CSS is loaded"
       ],
       "build": [
         {
