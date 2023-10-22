@@ -619,6 +619,22 @@
       ]
     },
     {
+      "name": "Rollback items - Specific",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Enables specific items in-game on the \"High\" setting. Compatible with Slippi Direct. Does not take effect in Ranked or Unranked. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Rollback Items Specific",
+          "isRecursive": true
+        }
+      ]
+    },
+    {
       "name": "2 Stock Item Chaos",
       "authors": [
         "Krohnos"
