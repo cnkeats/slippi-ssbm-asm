@@ -46,6 +46,7 @@ EditRules:
   .set ItemSpawnBitfield3, 0x25
   .set ItemSpawnBitfield4, 0x26
   .set ItemSpawnBitfield5, 0x27
+  .set DamageRatio, 0x30
 
   .set ItemsOff, 0xFF
   .set ItemsVeryLow, 0x00
@@ -54,11 +55,52 @@ EditRules:
   .set ItemsHigh, 0x03
   .set ItemsVeryHigh, 0x04
   .set ItemsStupidHigh, 0x06
+  
+  .set PlayerBlockStart, GameInfoBlock + 0x60
+  .set PlayerBlockWidth, 0x24
+  .set PlayerExternalCharacterId, 0x0
+  .set PlayerType, 0x1
+  .set PlayerStockCount, 0x2
+  .set CostumeIndex, 0x3
+  .set TeamShade, 0x7
+  .set Handish, 0x8
+  .set TeamId, 0x9
+  .set PlayerBitfield, 0xC
+  .set CPULevel, 0xF
+  .set DamageStart, 0x10
+  .set DamageSpawn, 0x12
+  .set OffenseRatio, 0x18
+  .set DefenseRatio, 0x1C
+  .set ModelScale, 0x20
+  
+  .set Player1Block, PlayerBlockStart + (0 * PlayerBlockWidth)
+  .set Player2Block, PlayerBlockStart + (1 * PlayerBlockWidth)
+  .set Player3Block, PlayerBlockStart + (2 * PlayerBlockWidth)
+  .set Player4Block, PlayerBlockStart + (3 * PlayerBlockWidth)
 
   load r20, GameInfoBlock
   
   li r18, 0x1
   stb r18, BombRain (r20)
+
+  li r18, 1 # 1 stock
+  load r19, 0x012C0000 # 300%
+
+  load r20 Player1Block
+  stb r18, PlayerStockCount (r20)
+  stw r19, DamageSpawn (r20)
+
+  load r20 Player2Block
+  stb r18, PlayerStockCount (r20)
+  stw r19, DamageSpawn (r20)
+  
+  load r20 Player3Block
+  stb r18, PlayerStockCount (r20)
+  stw r19, DamageSpawn (r20)
+  
+  load r20 Player4Block
+  stb r18, PlayerStockCount (r20)
+  stw r19, DamageSpawn (r20)
 
 Exit:
   lis r4, 0x8017
