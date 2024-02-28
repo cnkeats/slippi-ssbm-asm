@@ -715,6 +715,22 @@
           "isRecursive": true
         }
       ]
+    },
+    {
+      "name": "Bomb Rain",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Makes bombs rain from the sky as they do in Sudden Death. Compatible with Slippi Online. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Bomb Rain",
+          "isRecursive": true
+        }
+      ]
     }
   ]
 }
