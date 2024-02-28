@@ -5,3 +5,4 @@ echo.
 
 xcopy /y C:\Users\Owner\Documents\prog\slippi-ssbm-asm\Output\Netplay\* C:\Users\Owner\Documents\melee\test_dolphin\Sys\GameSettings\*
 xcopy /y C:\Users\Owner\Documents\prog\slippi-ssbm-asm\Output\Netplay\* C:\Users\Owner\Documents\melee\dev_dolphin\Sys\GameSettings\*
+xcopy /y C:\Users\Owner\Documents\prog\slippi-ssbm-asm\Output\Netplay\* C:\Users\Owner\Documents\prog\slippi-dolphin\Binary\x64\Sys\GameSettings\*
