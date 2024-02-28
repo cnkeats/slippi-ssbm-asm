@@ -313,7 +313,7 @@ lbz \reg, -0x62D0(\reg) # Load byte from 0x80479D30 (major ID)
 
 .macro loadGlobalFrame reg
 lis \reg, 0x8048
-lwz \reg, -0x62A0(\reg)
+lwz \reg, -0x62A0(\reg) # 80479D60
 .endm
 
 # This macro takes in an address that is expected to have a branch instruction. It will set
@@ -322,14 +322,14 @@ lwz \reg, -0x62A0(\reg)
 load r3, \address
 lwz r4, 0(r3) # Get branch instruction which contains offset
 
-# Process 3rd byte and extend sign to handle negative branches
-rlwinm r5, r4, 16, 0xFF
-extsb r5, r5
-rlwinm r5, r5, 16, 0xFFFF0000
-
-# Extract last 2 bytes, combine with top half, and then add to base address to get result
-rlwinm r4, r4, 0, 0xFFFC # Use 0xFFFC because the last bit is used for link
-or r4, r4, r5
+# This extracts the LI portion of the branch instruction and shifts it such
+# that the sign bit is all the way left. Then it does a divide instruction to
+# shift to the right 6 bits while preserving the sign. After that, add to
+# branch instruction location to get result.
+# Credit to taukhan for the divw improvement (saves 2 instructions)
+rlwinm r5, r4, 6, 0xFFFFFF00
+li r4, 64
+divw r4, r5, r4
 add \reg, r3, r4
 .endm
 
@@ -351,7 +351,6 @@ add \reg, r3, r4
 .set FN_MultiplyRWithF,0x800055ec
 .set FN_IntToFloat,0x800055f4
 .set FG_CreateSubtext,0x800056b4
-.set FN_LoadChatMessageProperties,0x800056ac
 .set FN_GetTeamCostumeIndex,0x800056b0
 .set FN_GetCSSIconData,0x800056b8
 .set FN_AdjustNullID,0x80005694
@@ -550,6 +549,9 @@ add \reg, r3, r4
 
 # Misc
 .set CONST_SlippiCmdGetDelay, 0xD5
+.set CONST_SlippiPlayMusic, 0xD6
+.set CONST_SlippiStopMusic, 0xD7
+.set CONST_SlippiChangeMusicVolume, 0xD8
 
 # For Slippi Premade Texts
 .set CONST_SlippiCmdGetPremadeTextLength, 0xE1
@@ -601,12 +603,14 @@ add \reg, r3, r4
 # Offsets from r13
 ################################################################################
 .set primaryDataBuffer,-0x49b4
+.set playbackDataBuffer,-0x5040 # From tournament mode line 8019b9d4, seems to be only used in one place
 .set secondaryDmaBuffer,-0x49b0
 .set archiveDataBuffer, -0x4AE8
 .set bufferOffset,-0x49b0
 .set frameIndex,-0x49ac
 .set textStructDescriptorBuffer,-0x3D24
 .set isWidescreen,-0x5020
+.set OFST_R13_SB_ADDR,-0x503C # Scene buffer, persists throughout scenes
 
 ################################################################################
 # Log levels

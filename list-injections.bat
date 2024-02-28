@@ -4,6 +4,8 @@ set list=netplay.json
 set list=%list%;console_core.json
 set list=%list%;console_UCF.json
 set list=%list%;console_UCF_stealth.json
+set list=%list%;console_UCF_084.json
+set list=%list%;console_UCF_084_stealth.json
 set list=%list%;console_mods_stealth.json
 set list=%list%;console_mods_tournament.json
 set list=%list%;console_mods_friendlies.json
@@ -19,6 +21,7 @@ set list=%list%;console_screen_wide.json
 set list=%list%;console_screen_wide_shutters.json
 set list=%list%;console_safety.json
 set list=%list%;console_crash_output.json
+set list=%list%;debugging.json
 
 for %%a in (%list%) do (
   echo Listing %%a...

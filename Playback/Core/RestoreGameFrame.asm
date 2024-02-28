@@ -32,7 +32,7 @@
   mr PlayerDataStatic,r3
 
 # get buffer pointer
-  lwz REG_PDB_ADDR,primaryDataBuffer(r13)
+  lwz REG_PDB_ADDR,playbackDataBuffer(r13)
   lwz BufferPointer,PDB_EXI_BUF_ADDR(REG_PDB_ADDR)
 
 #Check if this player is a follower
@@ -158,8 +158,10 @@ SKIP_RESYNC:
   mulli r4, r4, 0xc
   add r20, r3, r4 # move to the correct player position
 # Get backed up input value
-  lbz r3,AnalogRawInput(PlayerBackup)
+  lbz r3,AnalogRawInputX(PlayerBackup)
   stb r3, 0x2(r20) #store raw x analog
+  lbz r3, AnalogRawInputY(PlayerBackup)
+  stb r3, 0x3(r20) #store raw y analog
 
 # If we do not have resync logic enabled, don't try to restore percentage
   lbz r3, PDB_SHOULD_RESYNC(REG_PDB_ADDR)
