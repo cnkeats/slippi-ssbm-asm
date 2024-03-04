@@ -717,6 +717,22 @@
       ]
     },
     {
+      "name": "Mango Axe Wednesday",
+      "authors": [
+        "Krohnos"
+      ],
+      "description": [
+        "Mango Axe Wednesday for Rollback. No healing or cloaking items, spawn rate Very Low. Compatible with Slippi Direct. Does not take effect in Unranked. v1.0"
+      ],
+      "build": [
+        {
+          "type": "injectFolder",
+          "sourceFolder": "External/Mango Axe Wednesday",
+          "isRecursive": true
+        }
+      ]
+    },
+    {
       "name": "Bomb Rain",
       "authors": [
         "Krohnos"
