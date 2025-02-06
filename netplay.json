@@ -667,12 +667,12 @@
       ]
     },
     {
-      "name": "Toph Tournament: 5 Minutes",
+      "name": "99 Minutes",
       "authors": [
         "Krohnos"
       ],
       "description": [
-        "5 minutes to take the game. Could this be a meta-changing mixup? ",
+        "99 minute timer. ",
         "For use with Slippi Direct. v1.0"
       ],
       "build": [
@@ -747,6 +747,22 @@
           "isRecursive": true
         }
       ]
-    }
+    },
+	{
+		"name": "Pokéballs Only",
+		"authors": [
+		  "Krohnos"
+		],
+		"description": [
+		  "Pokéballs enabled at Medium frequency. Compatible with Slippi Online. v1.0"
+		],
+		"build": [
+		  {
+			"type": "injectFolder",
+			"sourceFolder": "External/PokeBalls",
+			"isRecursive": true
+		  }
+		]
+	  }
   ]
 }

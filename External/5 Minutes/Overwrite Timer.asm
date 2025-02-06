@@ -4,6 +4,11 @@
 .include "Common/Common.s"
 .include "Online/Online.s"
 
+  # Check if Versus mode
+  getMinorMajor r17
+  cmpwi r17, 0x0202
+  beq EditRules
+
   # Check for online modes
   lbz r17, OFST_R13_ONLINE_MODE(r13)
   cmpwi r17, ONLINE_MODE_RANKED
@@ -24,7 +29,7 @@
   b Exit
 
 EditRules:
-  li r18, 300 # 5 Minutes
+  li r18, 5940 # 99 Minutes
   load r20, 0x80480540 # Time limit
   stw r18, 0 (r20)
 
