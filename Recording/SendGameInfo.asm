@@ -47,6 +47,10 @@ backup
   li  r3,0
   stw r3,bufferOffset(r13)
 
+# Initialize first frame idx for -124 (pre-game) so we can check if we are in an init function
+  li  r3,CONST_FirstFrameIdx-1
+  stw r3,frameIndex(r13)
+
 #------------- DETERMINE SIZE OF GECKO CODE SECTION -----------------
   loadwz r3, GeckoHeapPtr # Gecko code list start
   addi r3, r3, 8 # skip past d0c0de d0c0de
@@ -121,6 +125,21 @@ backup
   stb r3, CommandSizesStart+0x1A(REG_Buffer)
   li r3, SPLIT_MESSAGE_PAYLOAD_LENGTH
   sth r3, CommandSizesStart+0x1B(REG_Buffer)
+
+  li r3, CMD_FOD_INFO
+  stb r3, CommandSizesStart+0x1D(REG_Buffer)
+  li r3, FOD_INFO_PAYLOAD_LENGTH
+  sth r3, CommandSizesStart+0x1E(REG_Buffer)
+
+  li r3, CMD_DL_INFO
+  stb r3, CommandSizesStart+0x20(REG_Buffer)
+  li r3, DL_INFO_PAYLOAD_LENGTH
+  sth r3, CommandSizesStart+0x21(REG_Buffer)
+
+  li r3, CMD_PS_INFO
+  stb r3, CommandSizesStart+0x23(REG_Buffer)
+  li r3, PS_INFO_PAYLOAD_LENGTH
+  sth r3, CommandSizesStart+0x24(REG_Buffer)
 
 #------------- BEGIN GAME INFO COMMAND -------------
 # game information message type
