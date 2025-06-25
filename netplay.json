@@ -608,7 +608,7 @@
         "Krohnos"
       ],
       "description": [
-        "Enables all items in-game on the \"Medium\" setting. Compatible with Slippi Direct. Does not take effect in Unranked or Teams. v1.1"
+        "Enables all items in-game on the \"Medium\" setting. Compatible with Slippi Direct. Does not take effect in Unranked or Teams. v2.0"
       ],
       "build": [
         {
@@ -754,7 +754,7 @@
 		  "Krohnos"
 		],
 		"description": [
-		  "Pokéballs enabled at Medium frequency. Compatible with Slippi Online. v1.1"
+		  "Pokéballs enabled at Medium frequency. Compatible with Slippi Online. v2.0"
 		],
 		"build": [
 		  {
